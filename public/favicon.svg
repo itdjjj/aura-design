@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-labelledby="favicon-title">
+  <title id="favicon-title">Aura Design</title>
+
+  <!-- Background: the studio's ink colour (tailwind.config.js, "ink") -->
+  <rect width="64" height="64" rx="14" fill="#141412"/>
+
+  <!-- An arch, the architect's doorway, drawn as one open line in sand -->
+  <path
+    d="M19 49V31a13 13 0 0 1 26 0v18"
+    fill="none"
+    stroke="#DCCBAE"
+    stroke-width="4.5"
+    stroke-linecap="square"
+    stroke-linejoin="round"
+  />
+
+  <!-- A bronze sun inside the arch: the "aura" (tailwind.config.js, "bronze") -->
+  <circle cx="32" cy="35" r="4.5" fill="#8A6A3D"/>
+
+  <!-- A floor line under the arch -->
+  <path d="M14 49h36" stroke="#DCCBAE" stroke-width="4.5" stroke-linecap="square" fill="none"/>
+</svg>

@@ -1,0 +1,30 @@
+{
+  "name": "aura-design",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marketing website for Aura Design, a premium interior design and architecture studio.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "author": "Aura Design",
+  "homepage": "https://www.auradesign.studio/",
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview --host --port 4173",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\""
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "vite": "^5.4.10"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not op_mini all"
+  ]
+}

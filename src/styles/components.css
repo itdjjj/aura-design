@@ -1,0 +1,847 @@
+/* ==========================================================================
+   Aura Design: components.css
+   Reusable component classes used by index.html and the JS modules.
+
+   Loaded from index.html right after /src/styles/main.css.
+
+   Notes on how this file is written:
+   - It is plain CSS (with a few @apply lines), deliberately NOT wrapped in
+     @layer. Tailwind only allows @layer blocks in a file that also contains
+     the matching @tailwind directive, and that directive lives in main.css.
+   - Because this file loads after the Tailwind utilities, a plain class here
+     would beat a utility of equal specificity on the same element. Where an
+     element pairs a component class with a conflicting utility in index.html
+     (for example "btn ... hidden lg:inline-flex"), the component's property
+     is wrapped in :where(), which has zero specificity, so the utility wins.
+   - Brand colours are written as rgb() values so opacity can be applied:
+       bone   247 244 239     ink    20 20 18      sand   220 203 174
+       bronze 138 106 61      stone  107 103 95     error  179 38 30
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   1. Layout helpers and typography
+   -------------------------------------------------------------------------- */
+
+/* Vertical rhythm shared by every full-width section */
+.section {
+  @apply py-24 lg:py-36;
+}
+
+/* Small uppercase label above section headings. Colour comes from utilities. */
+.eyebrow {
+  @apply text-xs font-medium uppercase tracking-eyebrow;
+}
+
+.section-title {
+  @apply font-display text-4xl font-medium leading-[1.1] sm:text-5xl lg:text-6xl;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Navigation
+   -------------------------------------------------------------------------- */
+
+/* Desktop link with an animated underline. Colour comes from utilities. */
+.nav-link {
+  position: relative;
+  padding-block: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current='true']::after {
+  transform: scaleX(1);
+}
+
+/* Large serif link inside the mobile menu */
+.mobile-link {
+  display: block;
+  padding-block: 1.25rem;
+  font-family: theme('fontFamily.display');
+  font-size: 2.25rem;
+  line-height: 1.1;
+  color: rgb(20 20 18);
+  transition:
+    color 0.3s ease,
+    padding-left 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mobile-link:hover,
+.mobile-link[aria-current='true'] {
+  padding-left: 0.5rem;
+  color: rgb(138 106 61);
+}
+
+.mobile-link[aria-current='true'] {
+  font-style: italic;
+}
+
+
+/* --------------------------------------------------------------------------
+   3. Buttons
+   Usage: class="btn btn-primary" (always combine .btn with one variant)
+   -------------------------------------------------------------------------- */
+
+/* display sits inside :where() so utilities such as "hidden" can override it */
+:where(.btn) {
+  display: inline-flex;
+}
+
+.btn {
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.95rem 2rem;
+  border: 1px solid transparent;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition-property: background-color, border-color, color, transform, box-shadow, opacity;
+  transition-duration: 0.45s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Solid dark, for light surfaces */
+.btn-primary {
+  background-color: rgb(20 20 18);
+  border-color: rgb(20 20 18);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: rgb(138 106 61);
+  border-color: rgb(138 106 61);
+}
+
+/* Solid white, for dark surfaces and the hero */
+.btn-light {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: rgb(20 20 18);
+}
+
+.btn-light:hover {
+  background-color: rgb(220 203 174);
+  border-color: rgb(220 203 174);
+}
+
+/* Outline on dark surfaces and the hero */
+.btn-outline-light {
+  background-color: transparent;
+  border-color: rgb(255 255 255 / 0.55);
+  color: #ffffff;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: rgb(20 20 18);
+}
+
+/* Outline on light surfaces */
+.btn-outline-dark {
+  background-color: transparent;
+  border-color: rgb(20 20 18 / 0.4);
+  color: rgb(20 20 18);
+}
+
+.btn-outline-dark:hover {
+  background-color: rgb(20 20 18);
+  border-color: rgb(20 20 18);
+  color: #ffffff;
+}
+
+/* Disabled and busy (the form sets aria-busy="true" while submitting) */
+.btn:disabled,
+.btn[aria-disabled='true'],
+.btn[aria-busy='true'] {
+  opacity: 0.65;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn[aria-busy='true'] {
+  cursor: progress;
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Hero slider dots
+   hero.js sets aria-selected="true" on the active dot, sets the
+   --hero-interval custom property (e.g. 5s) on [data-hero-dots], and sets
+   data-paused="true" on [data-hero-dots] while the slider is paused.
+   -------------------------------------------------------------------------- */
+.hero-dot {
+  position: relative;
+  display: block;
+  width: 1.5rem;
+  height: 3px;
+  padding: 0;
+  border: 0;
+  border-radius: 9999px;
+  background-color: rgb(255 255 255 / 0.35);
+  cursor: pointer;
+  transition:
+    width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.3s ease;
+}
+
+/* Larger invisible touch target */
+.hero-dot::before {
+  content: '';
+  position: absolute;
+  inset: -14px -4px;
+}
+
+/* Progress fill, drawn over the track */
+.hero-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: rgb(220 203 174);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.hero-dot:hover {
+  background-color: rgb(255 255 255 / 0.6);
+}
+
+.hero-dot[aria-selected='true'] {
+  width: 3.5rem;
+}
+
+.hero-dot[aria-selected='true']::after {
+  animation: dot-progress var(--hero-interval, 5s) linear forwards;
+}
+
+[data-hero-dots][data-paused='true'] .hero-dot[aria-selected='true']::after {
+  animation-play-state: paused;
+}
+
+@keyframes dot-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Portfolio: filter chips, project cards, lightbox image
+   -------------------------------------------------------------------------- */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgb(20 20 18 / 0.2);
+  border-radius: 9999px;
+  background-color: transparent;
+  color: rgb(20 20 18);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease;
+}
+
+.filter-chip:hover {
+  border-color: rgb(20 20 18);
+}
+
+.filter-chip[aria-pressed='true'] {
+  background-color: rgb(20 20 18);
+  border-color: rgb(20 20 18);
+  color: #ffffff;
+}
+
+/*
+  Project card markup rendered by portfolio-gallery.js:
+
+  <article class="project-card" data-category="residential">
+    <button type="button" class="project-card__trigger" aria-label="View project: Title">
+      <span class="project-card__media">
+        <img class="project-card__image" data-lazy ...>
+      </span>
+      <span class="project-card__body">
+        <span class="project-card__category">Residential</span>
+        <span class="project-card__title">Title</span>
+        <span class="project-card__meta">Location, 2025</span>
+      </span>
+    </button>
+  </article>
+
+  Add .is-entering to a card to play the scale-in animation after filtering.
+*/
+.project-card.is-entering {
+  @apply animate-scale-in;
+}
+
+.project-card__trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.project-card__media {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: rgb(20 20 18 / 0.06);
+}
+
+.project-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+  Card photographs are also lazy images, and main.css gives those an
+  opacity-only transition that is more specific than the rule above and would
+  switch the hover zoom off. This rule is more specific still, so the photograph
+  keeps both: the fade-in once loaded and the zoom on hover.
+*/
+.js .project-card__image[data-lazy] {
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card__trigger:hover .project-card__image,
+.project-card__trigger:focus-visible .project-card__image {
+  transform: scale(1.06);
+}
+
+/* Hover veil with a "View project" label */
+.project-card__media::after {
+  content: 'View project';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgb(20 20 18 / 0.7), transparent 55%);
+  color: #ffffff;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project-card__trigger:hover .project-card__media::after,
+.project-card__trigger:focus-visible .project-card__media::after {
+  opacity: 1;
+}
+
+.project-card__body {
+  display: block;
+  padding-top: 1.25rem;
+}
+
+.project-card__category {
+  display: block;
+  color: rgb(138 106 61);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.project-card__title {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: theme('fontFamily.display');
+  font-size: 1.875rem;
+  line-height: 1.15;
+}
+
+.project-card__meta {
+  display: block;
+  margin-top: 0.25rem;
+  color: rgb(107 103 95);
+  font-size: 0.875rem;
+}
+
+/* lightbox.js adds .is-changing while it swaps the image source */
+[data-lightbox-image] {
+  transition: opacity 0.3s ease;
+}
+
+[data-lightbox-image].is-changing {
+  opacity: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. Services and pricing cards
+   --------------------------------------------------------------------------
+  Markup rendered by services-grid.js:
+
+  <article class="service-card" data-service-id="full-service"
+           data-expanded="false" data-selected="false" data-featured="false">
+    <p class="service-card__tag">Most popular</p>            (optional)
+    <h3 class="service-card__title">Full-Service Interior Design</h3>
+    <p class="service-card__price">
+      <span class="service-card__from">from</span> $12,000
+      <span class="service-card__unit">/ project</span>
+    </p>
+    <p class="service-card__summary">Short description.</p>
+    <button type="button" class="service-card__toggle"
+            aria-expanded="false" aria-controls="details-id">What is included</button>
+    <div class="service-card__details" id="details-id">
+      <div>
+        <ul class="service-card__list"><li>Feature</li></ul>
+      </div>
+    </div>
+    <button type="button" class="btn btn-outline-dark service-card__cta">Choose this service</button>
+  </article>
+
+  The direct child of .service-card__details is the element that collapses,
+  so keep exactly one wrapper element inside it.
+*/
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 2rem;
+  border: 1px solid rgb(20 20 18 / 0.12);
+  background-color: #ffffff;
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgb(20 20 18 / 0.3);
+  box-shadow: 0 24px 48px -24px rgb(20 20 18 / 0.25);
+}
+
+.service-card[data-selected='true'] {
+  border-color: rgb(138 106 61);
+  box-shadow: 0 0 0 1px rgb(138 106 61);
+}
+
+/* Featured (dark) variant */
+.service-card[data-featured='true'] {
+  background-color: rgb(20 20 18);
+  border-color: rgb(20 20 18);
+  color: #ffffff;
+}
+
+.service-card[data-featured='true'] .service-card__summary,
+.service-card[data-featured='true'] .service-card__unit,
+.service-card[data-featured='true'] .service-card__from,
+.service-card[data-featured='true'] .service-card__list {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.service-card[data-featured='true'] .service-card__tag {
+  background-color: rgb(220 203 174);
+  color: rgb(20 20 18);
+}
+
+.service-card[data-featured='true'] .service-card__toggle {
+  color: #ffffff;
+}
+
+.service-card[data-featured='true'] .service-card__cta {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: rgb(20 20 18);
+}
+
+.service-card[data-featured='true'] .service-card__cta:hover {
+  background-color: rgb(220 203 174);
+  border-color: rgb(220 203 174);
+}
+
+.service-card__tag {
+  align-self: flex-start;
+  margin-bottom: 1.25rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 9999px;
+  background-color: rgb(138 106 61);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.service-card__title {
+  font-family: theme('fontFamily.display');
+  font-size: 1.875rem;
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.service-card__price {
+  margin-top: 1.25rem;
+  font-family: theme('fontFamily.display');
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.service-card__from,
+.service-card__unit {
+  font-family: theme('fontFamily.sans');
+  color: rgb(107 103 95);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-card__summary {
+  margin-top: 1.25rem;
+  color: rgb(107 103 95);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.service-card__toggle {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: rgb(20 20 18);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Chevron that flips when the card is expanded */
+.service-card__toggle::after {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-card[data-expanded='true'] .service-card__toggle::after {
+  transform: translateY(2px) rotate(-135deg);
+}
+
+/* Smooth height animation using grid rows (0fr to 1fr) */
+.service-card__details {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.55s;
+}
+
+.service-card__details > * {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.service-card[data-expanded='true'] .service-card__details {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+.service-card__list {
+  padding-top: 0.25rem;
+  padding-bottom: 1rem;
+  color: rgb(107 103 95);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.service-card__list li {
+  position: relative;
+  padding-block: 0.4rem;
+  padding-left: 1.5rem;
+}
+
+.service-card__list li::before {
+  content: '';
+  position: absolute;
+  top: 1.05rem;
+  left: 0;
+  width: 0.75rem;
+  height: 1px;
+  background-color: rgb(138 106 61);
+}
+
+/* Pushes the call to action to the bottom so cards align in a row */
+.service-card__cta {
+  margin-top: auto;
+  width: 100%;
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Form fields and validation states
+   --------------------------------------------------------------------------
+  validator.js and consultation-form.js control the state with attributes:
+
+  .field[data-state="valid"]     field passed validation
+  .field[data-state="invalid"]   field failed validation
+  .field[data-shake="true"]      set briefly on a failed submit to play a nudge
+  [data-error]                   message element, shown by removing "hidden"
+*/
+.field {
+  position: relative;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: rgb(20 20 18);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.field-input {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgb(20 20 18 / 0.2);
+  border-radius: 0;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  color: rgb(20 20 18);
+  /* 16px minimum prevents iOS Safari from zooming into the field */
+  font-size: 1rem;
+  line-height: 1.5;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.field-input::placeholder {
+  color: rgb(107 103 95 / 0.65);
+}
+
+.field-input:hover {
+  border-color: rgb(20 20 18 / 0.45);
+}
+
+.field-input:focus,
+.field-input:focus-visible {
+  outline: none;
+  border-color: rgb(138 106 61);
+  box-shadow: 0 0 0 3px rgb(138 106 61 / 0.22);
+}
+
+/* Select with a custom chevron */
+.field-select {
+  padding-right: 3rem;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23141412' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Muted text while the empty placeholder option is selected */
+.field-select:has(option[value='']:checked) {
+  color: rgb(107 103 95);
+}
+
+.field-select option {
+  color: rgb(20 20 18);
+}
+
+/* Valid state: bronze border and a check mark (not on selects or textareas) */
+.field[data-state='valid'] .field-input {
+  border-color: rgb(138 106 61 / 0.7);
+}
+
+.field[data-state='valid'] .field-input:not(.field-select):not(textarea) {
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A6A3D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-size: 1.1rem;
+}
+
+/* Invalid state: red border, soft tint and a red focus ring */
+.field[data-state='invalid'] .field-input {
+  border-color: rgb(179 38 30);
+  background-color: rgb(179 38 30 / 0.03);
+}
+
+.field[data-state='invalid'] .field-input:focus,
+.field[data-state='invalid'] .field-input:focus-visible {
+  border-color: rgb(179 38 30);
+  box-shadow: 0 0 0 3px rgb(179 38 30 / 0.2);
+}
+
+.field[data-state='invalid'][data-shake='true'] .field-input,
+.field[data-state='invalid'][data-shake='true'] .field-checkbox {
+  @apply animate-shake-soft;
+}
+
+/* Error message with an icon. Visible when the "hidden" attribute is removed. */
+.field-error {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  color: rgb(179 38 30);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  animation: error-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.field-error::before {
+  content: '';
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B3261E' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M12 7.5v5.5M12 16.5h.01'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@keyframes error-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom checkbox */
+.field-checkbox {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  border: 1px solid rgb(20 20 18 / 0.35);
+  border-radius: 0;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.field-checkbox:hover {
+  border-color: rgb(20 20 18);
+}
+
+.field-checkbox:checked {
+  background-color: rgb(20 20 18);
+  border-color: rgb(20 20 18);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E");
+  background-size: 80%;
+}
+
+.field-checkbox:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(138 106 61 / 0.35);
+}
+
+.field[data-state='invalid'] .field-checkbox {
+  border-color: rgb(179 38 30);
+}
+
+.field[data-state='invalid'] .field-checkbox:focus-visible {
+  box-shadow: 0 0 0 3px rgb(179 38 30 / 0.25);
+}
+
+
+/* --------------------------------------------------------------------------
+   8. Form status panels
+   index.html marks these with the "hidden" utility class. consultation-form.js
+   removes "hidden" to show them, and these rules lay them out and animate them.
+   -------------------------------------------------------------------------- */
+[data-form-success]:not(.hidden):not([hidden]) {
+  display: flex;
+  animation: success-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-form-summary]:not(.hidden):not([hidden]) {
+  animation: error-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes success-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

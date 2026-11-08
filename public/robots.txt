@@ -1,0 +1,11 @@
+# Aura Design: robots.txt
+# Served from the site root: https://auradesign.studio/robots.txt
+# (auradesign.studio is the sample domain used in index.html; change it
+# here too if the real domain is different.)
+
+# Everyone may crawl the whole site. An empty Disallow means "nothing is blocked".
+User-agent: *
+Disallow:
+
+# Sitemap: add this line once a sitemap.xml has been published at the root.
+# Sitemap: https://auradesign.studio/sitemap.xml

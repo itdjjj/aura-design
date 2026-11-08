@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Primary SEO -->
+  <title>Aura Design | Premium Interior Design &amp; Architecture Studio</title>
+  <meta name="description" content="Aura Design is a premium interior design and architecture studio creating refined residential, commercial and landscape spaces. Book a private consultation today." />
+  <meta name="keywords" content="interior design studio, luxury interior design, architecture studio, residential interiors, commercial interiors, landscape design, Aura Design" />
+  <meta name="author" content="Aura Design" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#F7F4EF" />
+  <link rel="canonical" href="https://www.auradesign.studio/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Aura Design" />
+  <meta property="og:title" content="Aura Design | Premium Interior Design &amp; Architecture Studio" />
+  <meta property="og:description" content="Refined residential, commercial and landscape spaces, designed end to end. Book a private consultation with Aura Design." />
+  <meta property="og:url" content="https://www.auradesign.studio/" />
+  <meta property="og:image" content="https://www.auradesign.studio/images/og-cover.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aura Design | Premium Interior Design &amp; Architecture Studio" />
+  <meta name="twitter:description" content="Refined residential, commercial and landscape spaces, designed end to end." />
+  <meta name="twitter:image" content="https://www.auradesign.studio/images/og-cover.jpg" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Inter:wght@300;400;500;600&amp;display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Critical hero image -->
+  <link rel="preload" as="image" href="/images/hero/hero-1.jpg" fetchpriority="high" />
+
+  <!-- Enables JS-only styles (e.g. scroll-reveal) without hiding content when JS is off -->
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!-- Styles: Tailwind entry + reusable component classes -->
+  <link rel="stylesheet" href="/src/styles/main.css" />
+  <link rel="stylesheet" href="/src/styles/components.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Aura Design",
+      "description": "Premium interior design and architecture studio specialising in residential, commercial and landscape projects.",
+      "url": "https://www.auradesign.studio/",
+      "image": "https://www.auradesign.studio/images/og-cover.jpg",
+      "telephone": "+1-212-555-0147",
+      "email": "studio@auradesign.studio",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "24 Mercer Row",
+        "addressLocality": "New York",
+        "addressRegion": "NY",
+        "postalCode": "10012",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-bone font-sans text-ink antialiased">
+  <!-- Accessibility: skip link -->
+  <a
+    href="#main"
+    class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:text-white"
+  >
+    Skip to main content
+  </a>
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+  <header
+    id="site-header"
+    data-header
+    data-scrolled="false"
+    class="group fixed inset-x-0 top-0 z-40 transition-all duration-500 data-[scrolled=true]:bg-bone/90 data-[scrolled=true]:shadow-[0_1px_0_0_rgba(20,20,18,0.08)] data-[scrolled=true]:backdrop-blur-md"
+  >
+    <div class="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8 lg:px-10">
+      <!-- Logo -->
+      <a
+        href="#home"
+        class="flex items-center gap-2 text-white transition-colors duration-500 group-data-[scrolled=true]:text-ink"
+        aria-label="Aura Design, back to top"
+        data-nav-link
+      >
+        <svg class="h-7 w-7" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="16" cy="16" r="14.5" stroke="currentColor" stroke-width="1.5" />
+          <path d="M9 22 16 8l7 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M12 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        </svg>
+        <span class="font-display text-2xl font-medium tracking-wide">Aura <span class="italic">Design</span></span>
+      </a>
+
+      <!-- Desktop navigation -->
+      <nav class="hidden items-center gap-10 lg:flex" aria-label="Primary">
+        <a href="#home" data-nav-link class="nav-link text-white group-data-[scrolled=true]:text-ink">Home</a>
+        <a href="#studio" data-nav-link class="nav-link text-white group-data-[scrolled=true]:text-ink">Studio</a>
+        <a href="#portfolio" data-nav-link class="nav-link text-white group-data-[scrolled=true]:text-ink">Portfolio</a>
+        <a href="#services" data-nav-link class="nav-link text-white group-data-[scrolled=true]:text-ink">Services</a>
+        <a href="#contact" data-nav-link class="nav-link text-white group-data-[scrolled=true]:text-ink">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-4">
+        <a
+          href="#contact"
+          class="btn btn-outline-light hidden group-data-[scrolled=true]:border-ink group-data-[scrolled=true]:text-ink group-data-[scrolled=true]:hover:bg-ink group-data-[scrolled=true]:hover:text-white lg:inline-flex"
+        >
+          Book a Consultation
+        </a>
+
+        <!-- Mobile menu toggle -->
+        <button
+          type="button"
+          class="relative flex h-11 w-11 items-center justify-center rounded-full lg:hidden"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-menu-toggle
+        >
+          <span class="sr-only">Menu</span>
+          <span class="flex w-6 flex-col items-end gap-[6px]" aria-hidden="true">
+            <span class="block h-px w-6 bg-white transition-colors duration-500 group-data-[scrolled=true]:bg-ink"></span>
+            <span class="block h-px w-4 bg-white transition-colors duration-500 group-data-[scrolled=true]:bg-ink"></span>
+            <span class="block h-px w-6 bg-white transition-colors duration-500 group-data-[scrolled=true]:bg-ink"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile menu overlay -->
+  <div
+    data-menu-overlay
+    data-open="false"
+    class="pointer-events-none fixed inset-0 z-[60] bg-ink/60 opacity-0 backdrop-blur-sm transition-opacity duration-500 data-[open=true]:pointer-events-auto data-[open=true]:opacity-100 lg:hidden"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Mobile menu panel -->
+  <div
+    id="mobile-menu"
+    data-mobile-menu
+    data-open="false"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Navigation menu"
+    class="invisible fixed inset-y-0 right-0 z-[70] flex w-full max-w-sm translate-x-full flex-col bg-bone px-8 pb-10 pt-6 shadow-2xl transition-all duration-500 ease-out data-[open=true]:visible data-[open=true]:translate-x-0 lg:hidden"
+  >
+    <div class="flex h-14 items-center justify-between">
+      <span class="font-display text-2xl font-medium tracking-wide">Aura <span class="italic">Design</span></span>
+      <button
+        type="button"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 transition-colors hover:bg-ink hover:text-white"
+        aria-label="Close navigation menu"
+        data-menu-close
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="mt-12 flex flex-1 flex-col" aria-label="Mobile">
+      <ul class="flex flex-col divide-y divide-ink/10 border-y border-ink/10">
+        <li><a href="#home" data-nav-link data-menu-link class="mobile-link">Home</a></li>
+        <li><a href="#studio" data-nav-link data-menu-link class="mobile-link">Studio</a></li>
+        <li><a href="#portfolio" data-nav-link data-menu-link class="mobile-link">Portfolio</a></li>
+        <li><a href="#services" data-nav-link data-menu-link class="mobile-link">Services</a></li>
+        <li><a href="#contact" data-nav-link data-menu-link class="mobile-link">Contact</a></li>
+      </ul>
+
+      <a href="#contact" data-menu-link class="btn btn-primary mt-10 w-full">Book a Consultation</a>
+
+      <div class="mt-auto pt-10 text-sm text-stone">
+        <p class="mb-1 uppercase tracking-[0.2em] text-[0.7rem] text-bronze">Studio</p>
+        <p>24 Mercer Row, New York, NY 10012</p>
+        <p class="mt-3">
+          <a href="tel:+12125550147" class="transition-colors hover:text-ink">+1 (212) 555-0147</a><br />
+          <a href="mailto:studio@auradesign.studio" class="transition-colors hover:text-ink">studio@auradesign.studio</a>
+        </p>
+      </div>
+    </nav>
+  </div>
+
+  <!-- =========================================================
+       MAIN
+       ========================================================= -->
+  <main id="main">
+
+    <!-- ---------------- HERO ---------------- -->
+    <section
+      id="home"
+      data-hero
+      class="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-ink"
+      aria-labelledby="hero-title"
+    >
+      <!-- Parallax background layer (JS appends the remaining slide backgrounds here) -->
+      <div
+        class="absolute inset-x-0 -top-[12%] h-[124%] will-change-transform"
+        data-parallax="0.25"
+        data-hero-backgrounds
+        aria-hidden="true"
+      >
+        <img
+          src="/images/hero/hero-1.jpg"
+          alt=""
+          width="2400"
+          height="1600"
+          class="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-[1400ms] ease-in-out"
+          data-hero-bg
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+
+      <!-- Overlays -->
+      <div class="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/30 to-ink/80" aria-hidden="true"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" aria-hidden="true"></div>
+
+      <!-- Floating decorative frame (moves at a different speed for depth) -->
+      <div
+        class="pointer-events-none absolute right-[8%] top-[22%] hidden h-72 w-52 border border-white/25 will-change-transform lg:block"
+        data-parallax="-0.12"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Content -->
+      <div
+        class="relative z-10 mx-auto w-full max-w-7xl px-5 pb-28 pt-36 sm:px-8 lg:px-10"
+        data-parallax="0.1"
+      >
+        <p class="eyebrow text-sand" data-reveal>Interior Design &amp; Architecture Studio</p>
+
+        <h1
+          id="hero-title"
+          class="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.05] text-white sm:text-6xl lg:text-8xl"
+          data-reveal
+        >
+          <span class="block">Interiors shaped by</span>
+          <span class="block h-[1.2em] overflow-hidden" data-hero-text-mask>
+            <span class="block italic text-sand" data-hero-text aria-live="off">quiet luxury</span>
+          </span>
+        </h1>
+
+        <p class="mt-8 max-w-xl text-base font-light leading-relaxed text-white/80 sm:text-lg" data-reveal>
+          Aura Design creates considered homes, workplaces and landscapes, from the first sketch to the final styled
+          shelf. Architecture and interiors, handled as one continuous conversation.
+        </p>
+
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row" data-reveal>
+          <a href="#contact" class="btn btn-light">Book a Private Consultation</a>
+          <a href="#portfolio" class="btn btn-outline-light">Explore Our Work</a>
+        </div>
+
+        <!-- Slider indicators -->
+        <div class="mt-16 flex items-center gap-5" data-reveal>
+          <div class="flex items-center gap-2" data-hero-dots role="tablist" aria-label="Hero headline slides">
+            <button type="button" class="hero-dot" role="tab" aria-selected="true" aria-label="Show headline 1" data-hero-dot></button>
+            <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="Show headline 2" data-hero-dot></button>
+            <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="Show headline 3" data-hero-dot></button>
+            <button type="button" class="hero-dot" role="tab" aria-selected="false" aria-label="Show headline 4" data-hero-dot></button>
+          </div>
+          <p class="text-xs uppercase tracking-[0.25em] text-white/60">
+            <span data-hero-counter>01</span> / 04
+          </p>
+        </div>
+      </div>
+
+      <!-- Scroll cue -->
+      <a
+        href="#studio"
+        data-nav-link
+        class="absolute bottom-8 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-3 text-[0.65rem] uppercase tracking-[0.3em] text-white/70 transition-colors hover:text-white sm:flex"
+        aria-label="Scroll to the studio section"
+      >
+        Scroll
+        <span class="block h-10 w-px origin-top animate-scroll-cue bg-white/60"></span>
+      </a>
+    </section>
+
+    <!-- ---------------- STUDIO / ABOUT ---------------- -->
+    <section id="studio" class="section" aria-labelledby="studio-title">
+      <div class="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-20 lg:px-10">
+        <div class="lg:col-span-6" data-reveal>
+          <div class="relative">
+            <img
+              src="/images/portfolio/studio-atelier.jpg"
+              alt="The Aura Design atelier with material samples, drawings and a model of a residential project on a long oak table"
+              width="1200"
+              height="1500"
+              loading="lazy"
+              decoding="async"
+              class="aspect-[4/5] w-full object-cover"
+            />
+            <div
+              class="absolute -bottom-6 -right-2 hidden w-56 border border-ink/10 bg-bone p-6 shadow-xl sm:block lg:-right-8"
+            >
+              <p class="font-display text-5xl font-medium text-bronze">14</p>
+              <p class="mt-1 text-xs uppercase tracking-[0.2em] text-stone">Years of design practice</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6" data-reveal>
+          <p class="eyebrow text-bronze">The Studio</p>
+          <h2 id="studio-title" class="section-title mt-5">
+            Spaces that hold the light, and the people inside them.
+          </h2>
+          <p class="mt-8 text-lg font-light leading-relaxed text-stone">
+            Aura Design is a team of architects, interior designers and landscape specialists working under one roof.
+            We believe the best rooms are never decorated after the fact. They are composed from the first line of the
+            plan, with structure, light, material and furniture considered together.
+          </p>
+          <p class="mt-5 leading-relaxed text-stone">
+            Every commission begins with listening. We study how you live or work, then design around those rituals
+            with a restrained palette, honest materials and meticulous detailing that ages gracefully.
+          </p>
+
+          <dl class="mt-12 grid grid-cols-1 gap-8 border-t border-ink/10 pt-10 sm:grid-cols-3">
+            <div>
+              <dt class="text-xs uppercase tracking-[0.2em] text-stone">Completed projects</dt>
+              <dd class="mt-2 font-display text-4xl font-medium">180+</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-[0.2em] text-stone">Specialists in-house</dt>
+              <dd class="mt-2 font-display text-4xl font-medium">24</dd>
+            </div>
+            <div>
+              <dt class="text-xs uppercase tracking-[0.2em] text-stone">Countries delivered</dt>
+              <dd class="mt-2 font-display text-4xl font-medium">9</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------- PORTFOLIO ---------------- -->
+    <section id="portfolio" class="section bg-white" aria-labelledby="portfolio-title">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div class="max-w-2xl" data-reveal>
+            <p class="eyebrow text-bronze">Selected Work</p>
+            <h2 id="portfolio-title" class="section-title mt-5">A portfolio built on restraint and craft.</h2>
+            <p class="mt-6 leading-relaxed text-stone">
+              Filter our recent projects by discipline. Select any image to view it full screen and browse the
+              details.
+            </p>
+          </div>
+
+          <!-- Category filters -->
+          <div
+            class="flex flex-wrap gap-3"
+            role="group"
+            aria-label="Filter projects by category"
+            data-portfolio-filters
+            data-reveal
+          >
+            <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-chip" data-filter="residential" aria-pressed="false">Residential</button>
+            <button type="button" class="filter-chip" data-filter="commercial" aria-pressed="false">Commercial</button>
+            <button type="button" class="filter-chip" data-filter="landscape" aria-pressed="false">Landscape</button>
+          </div>
+        </div>
+
+        <p class="mt-10 text-sm text-stone" aria-live="polite" data-portfolio-count>Showing all projects</p>
+
+        <!-- Project grid (rendered from src/data/portfolio.js) -->
+        <div
+          class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3"
+          data-portfolio-grid
+          aria-live="polite"
+        >
+          <noscript>
+            <p class="col-span-full rounded border border-ink/10 bg-bone p-6 text-stone">
+              Our interactive portfolio needs JavaScript. To see our latest projects, please email
+              <a class="underline" href="mailto:studio@auradesign.studio">studio@auradesign.studio</a> and we will
+              send you a PDF portfolio.
+            </p>
+          </noscript>
+        </div>
+
+        <!-- Empty state -->
+        <div class="hidden py-20 text-center" data-portfolio-empty>
+          <p class="font-display text-3xl">No projects in this category yet.</p>
+          <p class="mt-3 text-stone">New work is added regularly. Please check back soon or choose another category.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------------- SERVICES & PRICING ---------------- -->
+    <section id="services" class="section" aria-labelledby="services-title">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+        <div class="mx-auto max-w-3xl text-center" data-reveal>
+          <p class="eyebrow text-bronze">Services &amp; Investment</p>
+          <h2 id="services-title" class="section-title mt-5">Choose the level of involvement that suits you.</h2>
+          <p class="mt-6 leading-relaxed text-stone">
+            From a single morning of expert guidance to complete architecture and interiors delivery, every
+            engagement is priced transparently. Select a service to see what is included and to pre-fill your
+            consultation request.
+          </p>
+        </div>
+
+        <!-- Service cards (rendered from src/data/services.js) -->
+        <div
+          class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4"
+          data-services-grid
+        >
+          <noscript>
+            <p class="col-span-full rounded border border-ink/10 bg-white p-6 text-stone">
+              Our services range from Design Consultations (from $450) to Full-Service Interior Design and
+              Architecture. Please enable JavaScript to explore each package, or
+              <a class="underline" href="#contact">contact us</a> for a tailored proposal.
+            </p>
+          </noscript>
+        </div>
+
+        <!-- Included with every engagement -->
+        <div class="mt-20 border-y border-ink/10 py-12" data-reveal>
+          <p class="text-center text-xs uppercase tracking-[0.25em] text-stone">Included with every engagement</p>
+          <ul class="mt-8 grid grid-cols-1 gap-6 text-center sm:grid-cols-2 lg:grid-cols-4">
+            <li>
+              <p class="font-display text-2xl">A dedicated lead designer</p>
+              <p class="mt-2 text-sm text-stone">One point of contact from brief to handover.</p>
+            </li>
+            <li>
+              <p class="font-display text-2xl">Transparent budgeting</p>
+              <p class="mt-2 text-sm text-stone">Itemised costs with no hidden mark-ups.</p>
+            </li>
+            <li>
+              <p class="font-display text-2xl">Trade-grade sourcing</p>
+              <p class="mt-2 text-sm text-stone">Access to artisans, makers and showrooms.</p>
+            </li>
+            <li>
+              <p class="font-display text-2xl">Post-completion care</p>
+              <p class="mt-2 text-sm text-stone">A 12-month aftercare review of your space.</p>
+            </li>
+          </ul>
+        </div>
+
+        <p class="mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed text-stone">
+          All prices are starting figures in US dollars, exclusive of taxes, materials and furnishings. Final fees
+          depend on project size, location and scope, and are confirmed in a written proposal after your
+          consultation.
+        </p>
+      </div>
+    </section>
+
+    <!-- ---------------- CONSULTATION / CONTACT ---------------- -->
+    <section id="contact" class="section relative overflow-hidden bg-ink text-white" aria-labelledby="contact-title">
+      <div class="pointer-events-none absolute -right-40 -top-40 h-[28rem] w-[28rem] rounded-full border border-white/10" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -bottom-52 -left-32 h-[32rem] w-[32rem] rounded-full border border-white/5" aria-hidden="true"></div>
+
+      <div class="relative mx-auto grid max-w-7xl gap-16 px-5 sm:px-8 lg:grid-cols-12 lg:gap-20 lg:px-10">
+        <!-- Persuasion column -->
+        <div class="lg:col-span-5" data-reveal>
+          <p class="eyebrow text-sand">Private Consultation</p>
+          <h2 id="contact-title" class="mt-5 font-display text-4xl font-medium leading-tight sm:text-5xl">
+            Let&rsquo;s talk about the space you have in mind.
+          </h2>
+          <p class="mt-6 text-lg font-light leading-relaxed text-white/75">
+            Tell us a little about your project. A senior designer will review your brief personally and reply within
+            one business day to arrange a complimentary 30-minute introductory call.
+          </p>
+
+          <ol class="mt-12 space-y-8">
+            <li class="flex gap-5">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sand/50 font-display text-lg text-sand">1</span>
+              <div>
+                <p class="font-medium">Share your brief</p>
+                <p class="mt-1 text-sm leading-relaxed text-white/65">A few minutes to describe the space, timing and what matters most to you.</p>
+              </div>
+            </li>
+            <li class="flex gap-5">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sand/50 font-display text-lg text-sand">2</span>
+              <div>
+                <p class="font-medium">Intro call within 1 business day</p>
+                <p class="mt-1 text-sm leading-relaxed text-white/65">We discuss your goals, answer questions and outline how we would approach the work.</p>
+              </div>
+            </li>
+            <li class="flex gap-5">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sand/50 font-display text-lg text-sand">3</span>
+              <div>
+                <p class="font-medium">Receive a tailored proposal</p>
+                <p class="mt-1 text-sm leading-relaxed text-white/65">A clear scope, timeline and fee, with no obligation to proceed.</p>
+              </div>
+            </li>
+          </ol>
+
+          <address class="mt-14 space-y-2 border-t border-white/15 pt-8 text-sm not-italic text-white/70">
+            <p>24 Mercer Row, New York, NY 10012</p>
+            <p>
+              <a href="tel:+12125550147" class="transition-colors hover:text-white">+1 (212) 555-0147</a>
+            </p>
+            <p>
+              <a href="mailto:studio@auradesign.studio" class="transition-colors hover:text-white">studio@auradesign.studio</a>
+            </p>
+            <p class="text-white/50">Monday to Friday, 9:00 to 18:00 (EST)</p>
+          </address>
+        </div>
+
+        <!-- Form column -->
+        <div class="lg:col-span-7" data-reveal>
+          <div class="relative bg-bone p-6 text-ink shadow-2xl sm:p-10">
+            <form
+              id="consultation-form"
+              data-consultation-form
+              action="mailto:studio@auradesign.studio"
+              method="post"
+              enctype="text/plain"
+              novalidate
+              aria-describedby="form-intro"
+            >
+              <h3 class="font-display text-3xl font-medium">Request your consultation</h3>
+              <p id="form-intro" class="mt-2 text-sm text-stone">
+                Fields marked <span class="text-bronze" aria-hidden="true">*</span>
+                <span class="sr-only">with an asterisk</span> are required. We never share your details.
+              </p>
+
+              <!-- Submit-level error summary -->
+              <div
+                class="mt-6 hidden rounded border border-error/30 bg-error/5 p-4 text-sm text-error"
+                role="alert"
+                tabindex="-1"
+                data-form-summary
+              ></div>
+
+              <div class="mt-8 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
+                <!-- Full name -->
+                <div class="field" data-field>
+                  <label for="fullName" class="field-label">Full name <span class="text-bronze" aria-hidden="true">*</span></label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    class="field-input"
+                    autocomplete="name"
+                    placeholder="Jane Whitmore"
+                    data-rules="required|minLength:2"
+                    aria-describedby="fullName-error"
+                  />
+                  <p id="fullName-error" class="field-error" data-error hidden></p>
+                </div>
+
+                <!-- Email -->
+                <div class="field" data-field>
+                  <label for="email" class="field-label">Email address <span class="text-bronze" aria-hidden="true">*</span></label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="field-input"
+                    autocomplete="email"
+                    inputmode="email"
+                    placeholder="jane@example.com"
+                    data-rules="required|email"
+                    aria-describedby="email-error"
+                  />
+                  <p id="email-error" class="field-error" data-error hidden></p>
+                </div>
+
+                <!-- Phone -->
+                <div class="field" data-field>
+                  <label for="phone" class="field-label">Phone <span class="font-normal normal-case tracking-normal text-stone">(optional)</span></label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="field-input"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="+1 212 555 0100"
+                    data-rules="phone"
+                    aria-describedby="phone-error"
+                  />
+                  <p id="phone-error" class="field-error" data-error hidden></p>
+                </div>
+
+                <!-- Service -->
+                <div class="field" data-field>
+                  <label for="service" class="field-label">Service of interest <span class="text-bronze" aria-hidden="true">*</span></label>
+                  <select
+                    id="service"
+                    name="service"
+                    class="field-input field-select"
+                    data-rules="required"
+                    aria-describedby="service-error"
+                  >
+                    <option value="" selected disabled>Select a service</option>
+                    <option value="design-consultation">Design Consultation</option>
+                    <option value="concept-design">Concept Design Package</option>
+                    <option value="full-service">Full-Service Interior Design</option>
+                    <option value="architecture">Architecture &amp; Build Management</option>
+                    <option value="not-sure">I&rsquo;m not sure yet</option>
+                  </select>
+                  <p id="service-error" class="field-error" data-error hidden></p>
+                </div>
+
+                <!-- Budget -->
+                <div class="field sm:col-span-2" data-field>
+                  <label for="budget" class="field-label">Estimated project budget <span class="font-normal normal-case tracking-normal text-stone">(optional)</span></label>
+                  <select id="budget" name="budget" class="field-input field-select" aria-describedby="budget-error">
+                    <option value="" selected>Prefer to discuss on the call</option>
+                    <option value="under-50k">Under $50,000</option>
+                    <option value="50k-150k">$50,000 to $150,000</option>
+                    <option value="150k-500k">$150,000 to $500,000</option>
+                    <option value="500k-plus">$500,000 and above</option>
+                  </select>
+                  <p id="budget-error" class="field-error" data-error hidden></p>
+                </div>
+
+                <!-- Message -->
+                <div class="field sm:col-span-2" data-field>
+                  <div class="flex items-end justify-between">
+                    <label for="message" class="field-label">Tell us about your project <span class="text-bronze" aria-hidden="true">*</span></label>
+                    <span class="mb-2 text-xs text-stone" aria-hidden="true"><span data-char-count>0</span> / 1000</span>
+                  </div>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    maxlength="1000"
+                    class="field-input resize-none"
+                    placeholder="The type of space, its location, your timeline and the feeling you want to create..."
+                    data-rules="required|minLength:20|maxLength:1000"
+                    data-char-counter
+                    aria-describedby="message-error"
+                  ></textarea>
+                  <p id="message-error" class="field-error" data-error hidden></p>
+                </div>
+
+                <!-- Consent -->
+                <div class="field sm:col-span-2" data-field>
+                  <label class="flex cursor-pointer items-start gap-3 text-sm leading-relaxed text-stone">
+                    <input
+                      type="checkbox"
+                      id="consent"
+                      name="consent"
+                      class="field-checkbox mt-0.5"
+                      data-rules="checked"
+                      aria-describedby="consent-error"
+                    />
+                    <span>I agree to Aura Design contacting me about my enquiry using the details provided. <span class="text-bronze" aria-hidden="true">*</span></span>
+                  </label>
+                  <p id="consent-error" class="field-error" data-error hidden></p>
+                </div>
+
+                <!-- Honeypot (spam trap, hidden from real users and assistive tech) -->
+                <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+                  <label for="companyWebsite">Leave this field empty</label>
+                  <input type="text" id="companyWebsite" name="companyWebsite" tabindex="-1" autocomplete="off" />
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary mt-10 w-full" data-submit>
+                <svg
+                  class="hidden h-5 w-5 animate-spin"
+                  data-submit-spinner
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-opacity="0.3" stroke-width="2" />
+                  <path d="M21 12a9 9 0 0 0-9-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <span data-submit-label>Request My Consultation</span>
+              </button>
+
+              <p class="mt-4 text-center text-xs text-stone">
+                Complimentary, no obligation. Typical response time: under 24 hours.
+              </p>
+            </form>
+
+            <!-- Success state -->
+            <div
+              class="absolute inset-0 hidden flex-col items-center justify-center bg-bone p-8 text-center sm:p-12"
+              role="status"
+              tabindex="-1"
+              data-form-success
+            >
+              <span class="flex h-16 w-16 items-center justify-center rounded-full border border-bronze text-bronze">
+                <svg class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="m5 12.5 4.5 4.5L19 7.5" />
+                </svg>
+              </span>
+              <h3 class="mt-8 font-display text-4xl font-medium">Thank you, <span data-success-name>friend</span>.</h3>
+              <p class="mt-4 max-w-md leading-relaxed text-stone">
+                Your brief has reached our studio. A senior designer will be in touch within one business day to
+                arrange your complimentary introductory call.
+              </p>
+              <button type="button" class="btn btn-outline-dark mt-10" data-form-reset>Send another enquiry</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+  <footer class="bg-ink text-white" data-footer>
+    <div class="mx-auto max-w-7xl px-5 pb-10 pt-20 sm:px-8 lg:px-10">
+      <div class="grid grid-cols-1 gap-14 border-b border-white/10 pb-16 md:grid-cols-12">
+        <div class="md:col-span-5">
+          <a href="#home" class="font-display text-3xl font-medium tracking-wide" aria-label="Aura Design, back to top">
+            Aura <span class="italic">Design</span>
+          </a>
+          <p class="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
+            A premium interior design and architecture studio crafting calm, enduring spaces for homes, businesses and
+            landscapes.
+          </p>
+        </div>
+
+        <nav class="md:col-span-2" aria-label="Footer navigation">
+          <p class="text-xs uppercase tracking-[0.25em] text-sand">Explore</p>
+          <ul class="mt-6 space-y-3 text-sm text-white/70">
+            <li><a href="#studio" class="transition-colors hover:text-white">Studio</a></li>
+            <li><a href="#portfolio" class="transition-colors hover:text-white">Portfolio</a></li>
+            <li><a href="#services" class="transition-colors hover:text-white">Services</a></li>
+            <li><a href="#contact" class="transition-colors hover:text-white">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="md:col-span-2">
+          <p class="text-xs uppercase tracking-[0.25em] text-sand">Follow</p>
+          <ul class="mt-6 space-y-3 text-sm text-white/70">
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">Instagram</a></li>
+            <li><a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">Pinterest</a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-white">LinkedIn</a></li>
+          </ul>
+        </div>
+
+        <address class="not-italic md:col-span-3">
+          <p class="text-xs uppercase tracking-[0.25em] text-sand">Visit &amp; Contact</p>
+          <p class="mt-6 text-sm leading-relaxed text-white/70">
+            24 Mercer Row<br />
+            New York, NY 10012
+          </p>
+          <p class="mt-4 text-sm leading-relaxed text-white/70">
+            <a href="tel:+12125550147" class="transition-colors hover:text-white">+1 (212) 555-0147</a><br />
+            <a href="mailto:studio@auradesign.studio" class="transition-colors hover:text-white">studio@auradesign.studio</a>
+          </p>
+        </address>
+      </div>
+
+      <div class="flex flex-col items-center justify-between gap-4 pt-8 text-xs text-white/40 sm:flex-row">
+        <p>&copy; <span data-year>2026</span> Aura Design Studio. All rights reserved.</p>
+        <a href="#home" class="inline-flex items-center gap-2 transition-colors hover:text-white">
+          Back to top
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       LIGHTBOX (controlled by src/components/lightbox.js)
+       ========================================================= -->
+  <div
+    data-lightbox
+    role="dialog"
+    aria-modal="true"
+    aria-label="Project viewer"
+    aria-hidden="true"
+    class="invisible fixed inset-0 z-[90] flex flex-col bg-ink/95 opacity-0 backdrop-blur-sm transition-opacity duration-300 data-[open=true]:visible data-[open=true]:opacity-100"
+    data-open="false"
+  >
+    <div class="flex items-center justify-between px-5 py-4 sm:px-8">
+      <p class="text-xs uppercase tracking-[0.25em] text-white/60" aria-live="polite">
+        <span data-lightbox-counter>1 / 1</span>
+      </p>
+      <button
+        type="button"
+        class="flex h-11 w-11 items-center justify-center rounded-full border border-white/25 text-white transition-colors hover:bg-white hover:text-ink"
+        aria-label="Close project viewer"
+        data-lightbox-close
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="relative flex min-h-0 flex-1 items-center justify-center px-4 sm:px-20">
+      <button
+        type="button"
+        class="absolute left-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 text-white transition-colors hover:bg-white hover:text-ink sm:left-6"
+        aria-label="Previous project"
+        data-lightbox-prev
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m15 5-7 7 7 7" />
+        </svg>
+      </button>
+
+      <figure class="flex max-h-full max-w-5xl flex-col items-center">
+        <img
+          alt=""
+          class="max-h-[70vh] w-auto max-w-full object-contain shadow-2xl"
+          data-lightbox-image
+        />
+        <figcaption class="mt-6 text-center">
+          <p class="font-display text-3xl text-white" data-lightbox-title></p>
+          <p class="mt-2 text-sm text-white/60" data-lightbox-meta></p>
+        </figcaption>
+      </figure>
+
+      <button
+        type="button"
+        class="absolute right-3 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/25 text-white transition-colors hover:bg-white hover:text-ink sm:right-6"
+        aria-label="Next project"
+        data-lightbox-next
+      >
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="m9 5 7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+    <div class="h-8"></div>
+  </div>
+
+  <!-- Application entry (native ES module) -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

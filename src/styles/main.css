@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Aura Design: main.css
+   Tailwind entry point, global resets, base typography and scroll-reveal.
+
+   Loaded from index.html as /src/styles/main.css, followed by
+   /src/styles/components.css (reusable buttons, form fields, chips).
+
+   Rules for this file:
+   - Directives and layers only. Brand tokens live in tailwind.config.js.
+   - Reusable component classes belong in components.css, not here.
+   ========================================================================== */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------------------------------
+   1. Base layer: document, typography, focus, selection
+   -------------------------------------------------------------------------- */
+@layer base {
+  html {
+    /* Reserve scrollbar space so locking scroll (menu, lightbox) never shifts the layout */
+    scrollbar-gutter: stable;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Native smooth scrolling is only a fallback for visitors without JavaScript.
+     With JavaScript on, core/scroll.js handles smooth scrolling and header offset. */
+  @media (prefers-reduced-motion: no-preference) {
+    html:not(.js) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+    /* Prevents horizontal scroll from decorative oversized circles and parallax layers */
+    overflow-x: hidden;
+  }
+
+  /* Anchor targets stop below the fixed header (5rem = h-20) */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img,
+  svg,
+  video {
+    display: block;
+  }
+
+  /* Attribute-hidden elements stay hidden even if a component class sets display */
+  [hidden] {
+    display: none !important;
+  }
+
+  /* Keyboard focus: bronze on light surfaces */
+  :focus-visible {
+    outline: 2px solid theme('colors.bronze');
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Keyboard focus: sand on dark surfaces and over the hero image */
+  #home :focus-visible,
+  footer :focus-visible,
+  [data-lightbox] :focus-visible,
+  header[data-scrolled='false'] :focus-visible {
+    outline-color: theme('colors.sand');
+  }
+
+  /* Mouse and touch users do not need the ring on pointer focus */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background-color: theme('colors.bronze');
+    color: #ffffff;
+  }
+
+  /* Slim, quiet scrollbars (WebKit and Firefox) */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.stone') theme('colors.bone');
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: theme('colors.bone');
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: theme('colors.stone');
+    border: 2px solid theme('colors.bone');
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.bronze');
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Components layer: scroll-reveal system
+   Elements marked with data-reveal start hidden only when JavaScript is
+   available (the inline script in index.html adds the "js" class to <html>).
+   core/observer.js adds "is-visible" when an element enters the viewport.
+   Optional stagger: style="--reveal-delay: 150ms" on the element.
+   -------------------------------------------------------------------------- */
+@layer components {
+  .js [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.9s theme('transitionTimingFunction.luxe'),
+      transform 0.9s theme('transitionTimingFunction.luxe');
+    transition-delay: var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+  }
+
+  .js [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+
+  /* Lazy images fade in once loaded (observer.js adds "is-loaded") */
+  .js img[data-lazy] {
+    opacity: 0;
+    transition: opacity 0.8s theme('transitionTimingFunction.luxe');
+  }
+
+  .js img[data-lazy].is-loaded {
+    opacity: 1;
+  }
+
+  /* Parallax layers are moved by JavaScript with transform */
+  [data-parallax] {
+    backface-visibility: hidden;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Utilities layer: small helpers shared across modules
+   -------------------------------------------------------------------------- */
+@layer utilities {
+  /* Added to <html> by mobile-menu.js and lightbox.js while an overlay is open */
+  .scroll-locked {
+    overflow: hidden;
+  }
+
+  /* Hide scrollbars on horizontally scrolling rows (e.g. filter chips on small screens) */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Gallery cards hidden by a filter. portfolio-gallery.js toggles this class. */
+  .is-filtered-out {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Reduced motion
+   Visitors who ask their system for less motion get content immediately,
+   with no reveals, parallax easing or looping animations.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js [data-reveal],
+  .js img[data-lazy] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Print
+   -------------------------------------------------------------------------- */
+@media print {
+  header,
+  [data-mobile-menu],
+  [data-menu-overlay],
+  [data-lightbox],
+  [data-consultation-form] button {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .js [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
